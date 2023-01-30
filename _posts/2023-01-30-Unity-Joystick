@@ -1,0 +1,19 @@
+---
+title:  "Unity에서 Android용 조이스틱 만들기"
+
+categories:
+  - Unity
+tags:
+  - [유니티, Unity, 안드로이드, Android]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-01-30
+last_modified_at: 2023-01-30
+---
+
+먼저 Package Manager의 Packages : Unity Registry 창에서 Input System을 Install 한다.  
+
+Hierachy 창에서 UI > 
+조이스틱에 OnScreenStick 컴포넌트 추가
