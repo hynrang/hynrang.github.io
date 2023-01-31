@@ -31,5 +31,6 @@ public class Example
 안드로이드 어플을 빌드해서 실행시켜보면 30fps로 작동하는데, 다른 프레임률을 사용하고 싶은 경우 유용하다.
 
 ---
-<h4>참고</h4>
+<h3><b>참고</b></h3>
+
 [Unity Documentation - Application.targetFrameRate](https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html)
