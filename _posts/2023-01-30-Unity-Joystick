@@ -1,8 +1,8 @@
 ---
-title:  "Unity에서 Android용 조이스틱 만들기"
+title:  "<유니티> 조이스틱"
 
 categories:
-  - Unity
+  - 유니티
 tags:
   - [유니티, Unity, 안드로이드, Android]
 
@@ -17,3 +17,5 @@ last_modified_at: 2023-01-30
 
 Hierachy 창에서 UI > 
 조이스틱에 OnScreenStick 컴포넌트 추가
+
+다만 나는 조이스틱의 중심점 오브젝트까지 합해 하나의 프리팹으로 사용하고 싶어서, 좀 다른 방법을 쓰기로 했다.
