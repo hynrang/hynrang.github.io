@@ -1,0 +1,77 @@
+---
+title:  ""
+
+categories:
+  - 
+tags:
+  - []
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-
+last_modified_at: 2023-
+---
+
+<br/>
+
+#### 제목
+
+<br/>
+
+---
+## <b>참고</b>
+
+
+## FE에서의 Rest API
+
+- Front 서버와 Back 서버의 통신
+    - method data (발신)
+    - status code (수신)
+
+## 포트(Port) : (조용재 : 문)
+
+```js
+import axios from 'axios';
+
+//1. Axios 인스턴스 만들기
+const api = axios.create({baseURL: 'http://172.16.5.206:8000'});
+
+export interface createGamePayload {
+    name: string;
+    description: string;
+}
+
+// 2. API를 가져올 함수를 만듦?? 함수명 (페이로드) => api.메소드(URL, 페이로드)
+export const createGameAPI = (payload:createGamePayload) => api.post('game/', payload);
+
+export const listOfGamesAPI = () => api.get('game/');
+```
+
+
+```ts?
+"paths": {
+      "@/*": [
+        "src/*"
+      ]
+```
+
+-> 코드 : @/* 등이 src/*로 치환됨
+
+```js
+import {listOfGamesAPI} from "@/apis/index"
+```
+
+
+---
+
+## 백엔드 보안
+
+API를 연결시킬 주소(localhost.8000 등)을 WHITELIST에 등록.
+
+
+---
+
+
+공부해야 할 것
+- 네트워크(http, port)

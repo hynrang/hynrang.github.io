@@ -1,0 +1,26 @@
+---
+title:  "[웹 프로그래밍] Vue 관련 라이브러리"
+
+categories:
+  - Vue.js
+tags:
+  - [Vue]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-03-04
+last_modified_at: 2023-03-04
+---
+
+<br/>
+
+- #### Pinia
+
+- Vue.js의 공식 상태 관리 라이브러리
+- 
+
+<br/>
+
+---
+## <b>참고</b>
