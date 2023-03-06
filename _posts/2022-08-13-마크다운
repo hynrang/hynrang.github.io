@@ -17,9 +17,9 @@ last_modified_at: 2022-08-13
 
 ```html
 <details>
-<summary>내용</summary>
+<summary>제목</summary>
 <div>
-제목
+내용
 </div>
 </details>
 ```
