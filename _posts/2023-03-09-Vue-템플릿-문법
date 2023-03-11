@@ -1,0 +1,29 @@
+---
+title:  "[웹 프로그래밍] Vue.js 템플릿 문법"
+
+categories:
+  - 프로그래밍
+tags:
+  - [프로그래밍]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-03-09
+last_modified_at: 2023-03-09
+---
+
+<br/>
+
+### Vue 템플릿 문법
+
+```html
+<span>메세지: {{ msg }}</span>
+```
+
+<br/>
+
+---
+## <b>참고</b>
+
+[Vue 가이드, 템플릿 문법](https://ko.vuejs.org/guide/essentials/template-syntax.html#text-interpolation)
