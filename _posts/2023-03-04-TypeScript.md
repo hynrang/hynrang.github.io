@@ -55,6 +55,8 @@ last_modified_at: 2023-03-04
 export default
 ```
 
+export default를 통해 타 스크립트 파일에서 해당 스크립트 파일을 개발자가 원하는 이름으로 import할 수 있다.
+
 <br/>
 
 ---

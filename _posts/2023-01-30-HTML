@@ -1,0 +1,29 @@
+---
+title:  "[웹 프로그래밍] HTML"
+
+categories:
+  - 프로그래밍
+tags:
+  - [웹 프로그래밍]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-01-30
+last_modified_at: 2023-03-13
+---
+
+# HTML
+
+> <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage
+
+### <input>
+
+```html
+<input>
+```
+
+|속성|설명|비고|
+|---|---|---|
+|데이터1|데이터2|데이터3|
+|데이터4|데이터5|데이터6|
