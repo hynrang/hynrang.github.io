@@ -34,7 +34,12 @@ public class Example
 
 특히 120fps의 경우, 120Hz가 지원되는 안드로이드 기기에서 문제없이 작동됨을 확인했다.  
 
+<br>
+
 ---
+
+<br>
+
 <h3><b>참고</b></h3>
 
 [Unity Documentation - Application.targetFrameRate](https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html)

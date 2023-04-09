@@ -1,0 +1,25 @@
+---
+title:  "[C언어] 메모리 동적 할당"
+
+categories:
+  - 프로그래밍
+tags:
+  - [프로그래밍]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-04-04
+last_modified_at: 2023-04-04
+---
+
+<br>
+
+# 제목
+
+<br>
+
+---
+
+# <b>참고</b>
+[티스토리 블로그 | 메모리 동적할당 (malloc, free) 함수 사용법 & 예제](https://coding-factory.tistory.com/671)
