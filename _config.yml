@@ -22,10 +22,10 @@ timezone: Asia/Seoul
 # ↓ --------------------------
 
 # Main Title
-title: __kiw6024__
+title: _kiw6024_
 
 # Sub-Title
-tagline: 반가워요!!
+tagline: 반가워요~
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
