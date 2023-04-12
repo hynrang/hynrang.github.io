@@ -2,7 +2,15 @@
 https://kiw6024.github.io/
 
 
+<table>
+<tr>
+<td>
 
+```python
+# Your first code block here
+def foo():
+    return "bar"
+</td> <td>
 
 
 
