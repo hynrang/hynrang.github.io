@@ -24,7 +24,7 @@ last_modified_at: 2022-08-13
 </details>
 ```
 
-<br/>
+<br>
 
 - URL
 
@@ -32,13 +32,33 @@ last_modified_at: 2022-08-13
 [설명](https://url.com/)  
 ```
 
-<br/>
+<br>
 
 |제목1|제목2|제목3|
 |---|---|---|
 |데이터1|데이터2|데이터3|
 |데이터4|데이터5|데이터6|
 
+<br>
+
+# Two Columns
+
+<table>
+<tr>
+<td>
+
+```python
+print("Hello")
+```
+</td>
+<td>
+  
+```python
+print("World!")
+```
+</td>
+</tr>
+</table>
 
 ---
 
