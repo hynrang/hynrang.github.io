@@ -7,10 +7,16 @@ https://kiw6024.github.io/
 <td>
 
 ```python
-# Your first code block here
-def foo():
-    return "bar"
-</td> <td>
+print("Hello")
+```
+</td>
+<td>
+```python
+print("World!")
+```
+</td>
+</tr>
+</table>
 
 
 
