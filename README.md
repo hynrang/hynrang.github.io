@@ -2,22 +2,11 @@
 https://kiw6024.github.io/
 
 
-
-
-<table>
-<tr>
-<td>
-
-```cs
-public class ClassName : MonoBehaviour
+```terminal
+hello
+nice to meet you
 ```
-</td>
-<td>
 
-> "Make sure that there are no compile errors and that the file name and class name match."
-</td>
-</tr>
-</table>
 
 
 <!--
