@@ -1,8 +1,7 @@
 ---
-title:  "[웹 프로그래밍] TypeScript"
+title:  "[Vue.js] TypeScript"
 
-categories:
-  - 프로그래밍
+categories: [프로그래밍, Vue.js]
 tags:
   - [Vue.js, TypeScript]
 
