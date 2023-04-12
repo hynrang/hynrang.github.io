@@ -1,10 +1,8 @@
 ---
 title:  "코루틴"
 
-categories:
-  - 프로그래밍
-tags:
-  - [프로그래밍, 기초]
+categories: [프로그래밍, 개념공부]
+tags: [프로그래밍, 기초]
 
 toc: true
 toc_sticky: true
