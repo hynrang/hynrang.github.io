@@ -2,7 +2,7 @@
 https://kiw6024.github.io/
 
 
-```terminal
+```console
 hello
 nice to meet you
 ```
