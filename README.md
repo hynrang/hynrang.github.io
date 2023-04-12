@@ -3,23 +3,6 @@ https://kiw6024.github.io/
 
 
 
-<details>
-  <summary>컴퓨터 언어</summary>
-  <div>
-
-  ```python
-  print("Hello, World!")
-  ```
-  </div>
-  <summary>컴퓨터 언어</summary>
-  <div>
-
-  ```python
-  print("Hello, World!")
-  ```
-  </div>
-</details>
-
 
 
 <!--
