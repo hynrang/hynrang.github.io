@@ -1,6 +1,26 @@
 # **블로그 포스팅을 위한 레포지토리입니다!**
 https://kiw6024.github.io/
 
+
+<table>
+<tr>
+<td>
+
+```python
+print("Hello")
+```
+</td>
+<td>
+  
+```python
+print("World!")
+```
+</td>
+</tr>
+</table>
+
+
+
 <!--
 # Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
