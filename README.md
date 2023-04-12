@@ -2,22 +2,7 @@
 https://kiw6024.github.io/
 
 
-<table>
-<tr>
-<td>
 
-```python
-print("Hello")
-```
-</td>
-<td>
-  
-```python
-print("World!")
-```
-</td>
-</tr>
-</table>
 
 
 
