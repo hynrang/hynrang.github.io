@@ -3,20 +3,15 @@ https://kiw6024.github.io/
 
 
 
-<table>
-<tr>
-<td>
+<details>
+<summary>제목</summary>
+<div>
 
-> "Make sure that there are no compile errors and that the file name and class name match."
-</td>
-<td>
-
-```cs
-public class ClassName : MonoBehaviour
+```python
+print("Hello, World!")
 ```
-</td>
-</tr>
-</table>
+</div>
+</details>
 
 
 
