@@ -2,10 +2,7 @@
 https://kiw6024.github.io/
 
 
-```console
-hello
-nice to meet you
-```
+
 
 
 
