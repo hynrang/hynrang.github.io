@@ -1,20 +1,6 @@
 # **블로그 포스팅을 위한 레포지토리입니다!**
 https://kiw6024.github.io/
 
-<table border="0">
-<tr>
-    <td><b style="font-size:30px">Title</b></td>
-    <td><b style="font-size:30px">Title 2</b></td>
-</tr>
-<tr>
-    <td>
-    ```cs
-    GameObject;
-    ```
-    </td>
-    <td>Lorem ipsum ...</td>
-</tr>
-</table>
 
 
 
