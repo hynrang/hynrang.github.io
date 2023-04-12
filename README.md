@@ -2,22 +2,10 @@
 https://kiw6024.github.io/
 
 
-<table>
-<tr>
-<td>
-
-```python
-print("Hello")
+```console
+hello
+nice to meet you
 ```
-</td>
-<td>
-  
-```python
-print("World!")
-```
-</td>
-</tr>
-</table>
 
 
 
