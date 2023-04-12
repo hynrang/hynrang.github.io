@@ -1,10 +1,8 @@
 ---
 title:  "[유니티] 목표 프레임률 변경"
 
-categories:
-  - 유니티
-tags:
-  - [유니티]
+categories: [프로그래밍, 유니티]
+tags: [프로그래밍, 유니티]
 
 toc: true
 toc_sticky: true
@@ -42,4 +40,4 @@ public class Example
 
 <h3><b>참고</b></h3>
 
-[Unity Documentation - Application.targetFrameRate](https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html)
+[Unity Documentation | Application.targetFrameRate](https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html)
