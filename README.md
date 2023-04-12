@@ -2,8 +2,8 @@
 https://kiw6024.github.io/
 
 
-![LAV-AD_main](https://user-images.githubusercontent.com/96360829/210505297-db1abb36-fe5c-463c-a24c-61c349bf78a2.png)
-*이미지 설명*
+
+
 
 
 <!--
