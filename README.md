@@ -2,20 +2,9 @@
 https://kiw6024.github.io/
 
 
-<details>
-    <summary>프로그래밍</summary>
-    <div>
 
-    ```python
-    print("Hello, World!")
-    ```
 
-    ```c
 
-    ```
-
-    </div>
-</details>
 
 
 <!--
