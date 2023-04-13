@@ -1,24 +1,6 @@
 # **블로그 포스팅을 위한 레포지토리입니다!**
 https://kiw6024.github.io/
 
-<table>
-<tr>
-<td>
-
-```terminal
-cd Scripts
-.\Activate.ps1
-```
-</td>
-<td>
-
-```terminal
-deactivate
-```
-</td>
-</tr>
-</table>
-
 
 
 
