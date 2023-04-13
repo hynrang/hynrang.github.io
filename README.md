@@ -2,21 +2,21 @@
 https://kiw6024.github.io/
 
 <table>
-  <tr>
-    <td>
+<tr>
+<td>
 
-    ```terminal
-    cd Scripts
-    .\Activate.ps1
-    ```
-    </td>
-    <td>
+```terminal
+cd Scripts
+.\Activate.ps1
+```
+</td>
+<td>
 
-    ```terminal
-    deactivate
-    ```
-    </td>
-  </tr>
+```terminal
+deactivate
+```
+</td>
+</tr>
 </table>
 
 
