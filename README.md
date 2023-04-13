@@ -1,7 +1,25 @@
-# **<center>블로그 포스팅을 위한 레포지토리입니다!</center>**
+# **블로그 포스팅을 위한 레포지토리입니다!**
 https://kiw6024.github.io/
 
+<table>
+<tr>
+<td>
 
+```terminal
+cd Scripts
+.\Activate.ps1
+```
+
+위의 단계가 정상적으로 진행되었을 경우, `(venv32bit) PS C:\파일명\python\venv32bit\Scripts>`와 같은 식의 정상작동 문구가 출력된다.
+</td>
+<td>
+  
+```terminal
+deactivate
+```
+</td>
+</tr>
+</table>
 
 
 
