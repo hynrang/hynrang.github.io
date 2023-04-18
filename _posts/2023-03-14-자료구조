@@ -631,4 +631,50 @@ Infix, Prefix, Postfix 살짝 더 자세히 나감.
 컴파일러에 따라 스택을 2개를 사용하는 경우도, 1개를 사용하는 경우도 있다.
 수식을 옮길 때 위치를 정확히 반영하여 옮겨야 한다. Ex. (B+C)*E -> Postfix) BC+E*이지 EBC+*가 아니다.
 
-## <b>참고</b>
+---
+
+4월 18일
+
+큐(Queue)
+- 데이터의 입출력이 양쪽 끝 방향에서 수행됨
+- FIFO(First-In, First-Out) 구조이다. => LIFO구조의 스택과 차이를 보인다.
+- 2개의 변수 tail(=rear), head(=front)를 사용하여 입출력을 제어하며, 추가시 tail += 1을 수행하고 삭제시 head += 1을 수행한다. => top 변수 1개만을 사용하던 스택과 차이를 보인다.
+- 운영체제 시스템에서 프로세스(=실행중인 프로그램)의 순차처리, SpooL(Simultaneous Pheripheral Operation On Line => 출력작업) 처리 등에 사용한다.
+
+<!--동작 원리-->
+queue
+  0   1   2   3   4
+|   |   |   |   |   |
+head
+tail
+
+  0   1   2   3   4
+|10 |20 |30 |   |   |
+head    tail
+
+  0   1   2   3   4
+|   |   |   |   |   |
+        head    
+        tail
+
+<!--실제 코드-->
+```c
+int queue[5];
+int head = NULL, tail = NULL;
+
+// Queue의 기본적인 데이터 추가 알고리즘
+if (tail >= n) overflow;
+queue[tail] = data;
+tail += 1;
+
+// Queue의 기본적인 데이터 삭제 알고리즘
+if (head == 0 && tail == 0) underflow;
+if ( head < tail) {
+  queue[head] = NULL;
+  head += 1;
+  if (head == tail) {
+    overflow,
+    return
+  }
+}
+
