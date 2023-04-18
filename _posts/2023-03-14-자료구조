@@ -653,6 +653,11 @@ tail
 head    tail
 
   0   1   2   3   4
+|   |20 |30 |   |   |
+    head tail
+<!--"이 때 비어버린 Queue[0] 자리에는 값을 추가할 수 없다."는 단점이 있는데, 이를 해결하기 위한 방법은 밑에서 이어 설명-->
+
+  0   1   2   3   4
 |   |   |   |   |   |
         head    
         tail
@@ -678,3 +683,14 @@ if ( head < tail) {
   }
 }
 
+// head와 tail의 포인터값 관찰하고 이해하는 것이 중요하다.
+
+"이 때 비어버린 Queue[0] 자리에는 값을 추가할 수 없다."라는 이슈는 head와 tail의 포인터값을 후퇴시킴으로서 복구가 가능하며, 이에 따라 추가공간을 확보할 수 있는데, 이렇게 보완된 큐를 Moving Queue라고 한다.
+
+-> 그러나 기본적인 Queue도 Moving Queue도 실제로는 불리하고 불편하기 떄문에 사용되지 않으며, 실제로 사용되는 것은 보완 된 Queue의 보완된 Queue인 Circular Queue를 사용한다.
+
+# Circular Queue
+원형 큐에서는 시작점과 끝점이 연결되어 있다.
+Ex. 이 Queue에서는 head = 4, tail = 1 같은 상황이 가능하다.
+
+head와 tail값을 모두
