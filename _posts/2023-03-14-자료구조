@@ -547,6 +547,8 @@ stock[top] = NULL;
 
 -> overflow && underflow 개념 중요한듯?
 
+- overflow : 추가가 불가능함
+
 .
 .
 .
@@ -693,4 +695,48 @@ if ( head < tail) {
 원형 큐에서는 시작점과 끝점이 연결되어 있다.
 Ex. 이 Queue에서는 head = 4, tail = 1 같은 상황이 가능하다.
 
-head와 tail값을 모두
+---
+
+4월 19일
+
+Circular Queue -> 나머지 연산자(%)를 이용한다. -> 당연함.
+Circular Queue를 구현하는 핵심 키워드(알고리즘)은 '나머지 연산자(%)'이다.
+
+=>
+데이터 추가시 tail = (tail + 1) % n
+데이터 삭제시 head = (head + 1) % n
+
+# 아래 2 알고리즘의 공통 코드
+```c
+int Q[5];
+int head = tail = NULL;
+```
+
+# Circular Queue의 추가 알고리즘
+```c
+tail = (tail + 1) % N
+
+if (head == tail) {
+  if (Queue[tail] = NULL) {
+    Q[tail] = data, overflow, return;
+  } else {
+    overflow, return;
+  }
+}
+
+Queue[tail] = data;
+
+# Circular Queue의 삭제 알고리즘
+```c
+if (head == tail && Q[head] = NULL) overflow, return;
+head = (head + 1) % n;
+Q[head] = NULL;
+```
+
+환영 큐는 이동 큐의 문제점을 보완, 이동 큐는 기본 큐의 문제점을 보완.
+환영 큐에서도 tail, head가 같은 곳을 가리키면 overflow될 수 있음.
+
+다중 스택 -> 말 그대로 스택이 여러개 -> Ex. 2차원 배열을 다중 스택으로 표현 가능
+다중 큐   -> 말 그대로 큐가 여러개   -> 그러나 큐는 순서를 가질 수 있다.
+          -> Ex. "우선순위 큐"
+          -> DEQ -> Double Embedded Queue -> 입력 제한 DEQ(입력만 한 쪽 끝에서, 입력은 양쪽에서) && 출력 제한 DEQ(출력만 한 쪽 끝에서, 입력은 양쪽에서)
