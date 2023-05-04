@@ -52,3 +52,7 @@ mygenerator = createGenerator() # 제너레이터 생성
 for i in mygenerator:
      print(i)
 ```
+
+---
+# 참고
+[learn.microsoft | 반복기](https://learn.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/iterators)
