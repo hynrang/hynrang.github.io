@@ -1,5 +1,5 @@
 ---
-title:  "[유니티] 광고"
+title:  "[유니티] 애드몹 적용"
 
 categories: [프로그래밍, 유니티]
 tags: [프로그래밍, 유니티]
@@ -15,7 +15,106 @@ last_modified_at: 2023-05-05
 
 # 구글 애드몹
 
-[구글 애드몹](https://developers.google.com/admob/unity/quick-start?hl=ko)에서 다운로드받을 수 있다.
+유니티 프로젝트에 광고를 적용하기 위한 솔루션 중 하나인 애드몹(AdMob)은 SDK형태로 제공되며, 구글 애드몹 [Mobile Ads SDK](https://developers.google.com/admob/unity/quick-start?hl=ko) 페이지에서 `GoogleMobileAds-v8.1.0.unitypackage` 플러그인을 다운받아 유니티에서 임포트하여 사용하거나 [googleads-mobile-unity 깃허브 페이지](https://github.com/googleads/googleads-mobile-unity/tree/main/source)에서 세부 소스코드를 참조할 수 있다.  
+플러그인 파일은 [Google Mobile Ads Unity Plugin](https://github.com/googleads/googleads-mobile-unity/releases/tag/v8.1.0) 깃허브 페이지에서 다운로드받을 수 있으며, 해당 플러그인으로 _배너, 전면 광고, 네이티브, 리워드, 보상형 전면 광고_ 등을 적용할 수 있다.
+
+<br>
+
+# 전면 광고
+
+전면광고를 프로젝트에 적용해보자. 공식 설명은 [이곳](https://developers.google.com/admob/unity/interstitial?hl=ko)에서 참조할 수 있으며, 광고 기능이 제대로 작동하는지 테스트할 땐 항상 아래의 테스트 전용 App ID를 이용해야 한다.  
+
+- `ca-app-pub-3940256099942544/1033173712` (Android)
+- `ca-app-pub-3940256099942544/4411468910` (iOS)
+
+<br>
+
+### 초기화
+
+AdMob을 사용할 땐 앱 실행시마다 `MobileAds.Initialize()`메서드를 통해 SDK 초기화 작업을 거쳐야 한다.
+
+```cs
+using GoogleMobileAds;
+using GoogleMobileAds.Api;
+
+public class GoogleMobileAdsDemoScript : MonoBehaviour
+{
+    public void Start()
+    {
+        MobileAds.Initialize((InitializationStatus initStatus) => {});
+    }
+}
+```
+
+### 광고 로드
+
+```cs
+#if UNITY_ANDROID
+    private string _adUnitId = "ca-app-pub-3940256099942544/1033173712";
+#elif UNITY_IPHONE
+    private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
+#else
+    private string _adUnitId = "unused";
+#endif
+
+    private InterstitialAd interstitialAd;
+
+
+
+    public void LoadInterstitialAd()
+    {
+        if (interstitialAd != null)
+        {
+            interstitialAd.Destroy();
+            interstitialAd = null;
+        }
+
+        Debug.Log("Loading the interstitial ad.");
+
+        var adRequest = new AdRequest.Builder()
+                .AddKeyword("unity-admob-sample")
+                .Build();
+
+        InterstitialAd.Load(_adUnitId, adRequest,
+            (InterstitialAd ad, LoadAdError error) =>
+            {
+                if (error != null || ad == null)
+                {
+                    Debug.LogError("interstitial ad failed to load an ad " +
+                                    "with error : " + error);
+                    return;
+                }
+
+                Debug.Log("Interstitial ad loaded with response : "
+                        + ad.GetResponseInfo());
+
+                interstitialAd = ad;
+            });
+    }
+```
+
+
+# App ID
+
+`Assets > Google Mobile Ads > Settings > Google Mobile Ads App ID`{: filepath } 란에는 물결표시가 있는 App ID를 넣어야 한다.
+
+# 틩김 오류 수정
+
+`Assets\Plugins\Android\GoogleMobileAdsPlugin.androidlib`{: filepath }에 있는 `AndroidManifest.xml`와
+`Assets\Plugins\Android`{: filepath }에 있는 `AndroidManifest.xml`의 
+
+```HTML
+<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-2168910631722247/1150412402"/>
+```
+
+android:value값이 일치하도록 수정해야 한다.
+
++ 애드몹 스크립트의 
+```cs
+#if UNITY_ANDROID
+  private string _adUnitId = "ca-app-pub-2168910631722247/1150412402";
+```
+도 일치해야 함.
 
 <br>
 
