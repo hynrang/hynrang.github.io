@@ -73,3 +73,23 @@ axios.delete("/user?ID=12345", {
 ```
 
 각 메서드의 `url` 인자값에는 서버의 URL 주소를 입력할 수 있으며, 이는 예를 들어 `http://localhost:8000` 등이 될 수 있다.
+
+
+
+혹은, axios 객체를 만들어 사용하는 방법도 있다.
+
+```js
+import axios from 'axios';
+
+//1. Axios 인스턴스 만들기
+const api = axios.create({baseURL: 'url'});
+
+export interface createGamePayload {
+    name: string;
+    description: string;
+}
+
+export const createGameAPI = (payload:createGamePayload) => api.post('game/', payload);
+```
+
+메인 코드를 작성해두고, 타 파일에서 `import { createGameAPI } from "@/apis/index.ts"` 등으로 사용할 수 있다.
