@@ -1,0 +1,29 @@
+---
+title:  "데이터 탐색"
+
+categories: [프로그래밍, 개념공부]
+tags: [프로그래밍]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-06-01
+last_modified_at: 2023-06-01
+---
+
+<br>
+
+(데이터 탐색 설명)
+
+- 삽입법 : Insertion, Shell
+- 이미 정리되어 있는 서브 파일에 한 개의 레코드를 입력하여 정렬
+- 교환법 : Bubble, Selection, Quick(가장 빠름)
+- 위 두개는 알고리즘
+- 선택법 : Heap
+- 병합법 : 2-way merge
+- 분배법 : Radix (큐 이용)
+
+<br>
+
+---
+# 참고
