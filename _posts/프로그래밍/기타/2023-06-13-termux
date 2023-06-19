@@ -19,20 +19,17 @@ last_modified_at: 2023-06-13
 
 <br>
 
-그런데 우연찮게 VNC환경을 대체하여 X윈도우를 지원한다는 Termux X11라는 물건을 알게 되었다. 
-
-(X윈도우 개념 설명)
-
-Termux X11는
-
-# Termux 설치
-
-Termux 어플리케이션은 [구글 플레이](https://play.google.com/store/apps/details?id=com.termux&hl=ko)에도 등록되어 있지만, 관리되지 않고 방치되어 있는 버전이다.[^1]  
-대신 [F-Droid](https://f-droid.org/en/packages/com.termux/) 등을 통해 다운받을 수 있다. 글을 쓰는 시점에서는 2022년 01월 11일자 `0.118.0`버전을 설치했다.
+그런데 우연찮게 VNC환경을 대체하여 X윈도우를 지원한다는 Termux X11라는 물건을 알게 되었다. 기존의 VNC 방식보다 훨씬 좋은 성능을 제공하면서도 VirglRenderer로 GPU가속도 지원한다는 것인데, [간단한 콘솔, PC게임](https://www.youtube.com/watch?v=snBl1xZYhsA)이 돌아간다거나, [블렌더 3D](https://www.youtube.com/watch?v=puY75eO_DiI)가 돌아간다거나 하는 재미있는 사용후기들이 많아 호기심으로 다시 도전해보기로 했다.
 
 <br>
 
-[termux-x11 깃허브](https://github.com/termux/termux-x11/actions/workflows/debug_build.yml)에서 `termux-x11-arm64-v8a-debug`버전 Termux:X11를 다운받고, Termux 터미널창에서 아래의 명령어를 입력하여 각종 패키지를 설치하자.
+# Termux 설치
+
+Termux 어플리케이션은 [구글 플레이](https://play.google.com/store/apps/details?id=com.termux&hl=ko)에도 등록되어 있지만, 관리되지 않고 방치되어 있는 버전이다.[^1] 대신, 최신 버전은 [F-Droid](https://f-droid.org/en/packages/com.termux/) 등을 통해 다운받을 수 있다. 글을 쓰는 시점에서는 2022년 01월 11일자 `0.118.0`버전을 설치했다.
+
+<br>
+
+[termux-x11 깃허브](https://github.com/termux/termux-x11/actions/workflows/debug_build.yml)에서 termux-x11-arm64-v8a-debug Termux:X11를 다운받고, Termux 터미널창에서 아래의 명령어를 입력하여 필요한 패키지를 설치하자.
 
 ```bash
 pkg install termux-x11-alpha
@@ -40,10 +37,6 @@ pkg install x11-repo
 pkg install xwayland xorg-server-xvfb
 pkg install xfce gimp
 ```
-
-`x11-repo` : 
-`vim` : 
-`xwayland` : X server 설치를 위한 
 
 <br>
 
