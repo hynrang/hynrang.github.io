@@ -1,0 +1,86 @@
+---
+title:  "Termux 설치 및 기초 환경 세팅하기"
+
+categories: [프로그래밍, 기타]
+tags: [안드로이드]
+
+toc: true
+toc_sticky: true
+
+date: 2023-06-13
+last_modified_at: 2023-06-13
+---
+
+<br>
+
+# Termux
+
+(다운받았다가 실망하고 지운거, 이번에 Termux-x11나온거 알게된거, 장점이 뭔지 설명)
+
+우분투를 구동했었음.
+VNC 서버를 이용해 구동하는 방식이었는데, 생각보다 반응도 느리고 사용성이 좋지 않아 금세 흥미를 잃었었음.
+
+(X윈도우 개념 설명)
+
+# Termux 설치
+
+Termux 어플리케이션은 [구글 플레이](https://play.google.com/store/apps/details?id=com.termux&hl=ko)에도 등록되어 있지만, 관리되지 않고 방치되어 있는 버전이다.[^1]  
+대신 [F-Droid](https://f-droid.org/en/packages/com.termux/) 등을 통해 다운받을 수 있다. 글을 쓰는 시점에서는 2022년 01월 11일자 `0.118.0`버전을 설치했다.
+
+<br>
+
+[termux-x11 깃허브](https://github.com/termux/termux-x11/actions/workflows/debug_build.yml)에서 `termux-x11-arm64-v8a-debug`버전 Termux:X11를 다운받고, Termux 터미널창에서 아래의 명령어를 입력하여 각종 패키지를 설치하자.
+
+```bash
+pkg install termux-x11-alpha
+pkg install x11-repo
+pkg install xwayland xorg-server-xvfb
+pkg install xfce gimp
+```
+
+`x11-repo` : 
+`vim` : 
+`xwayland` : X server 설치를 위한 
+
+<br>
+
+Install Termux-x11 deb from sdcard
+```bash
+termux-setup-storage
+dpkg -i storage/shared/Download/termux-x11/termux-x11-*.deb
+```
+
+Edit ~/.termux/termux.properties with VIM:
+
+
+```bash
+pkg install vim
+vim ~/.termux/termux.properties
+```
+
+Press the x key on your keyboard to delete the # character. 그리고 상단의 `#allow-external-apps=true`에서 #에 마우스 커서를 위치한 채 X를 눌러주면 Uncomment가 가능하다.  
+Uncomment가 끝났으면 Esc를 누르고 :wq를 입력하여 properties 창에서 빠져나오자.
+
+
+다음엔 터미널에서 Termux:X11를 실행할 차례다.
+
+```bash
+export DISPLAY=:0
+termux-x11 :0 &
+```
+
+```bash
+dbus-launch --exit-with-session startxfce4 &
+```
+
+
+
+CTRL+Z로 XFCE4 실행을 멈출 수 있다.
+
+<br>
+
+---
+[^1]: 레딧의 [r/termux 서브레드](https://www.reddit.com/r/termux/comments/zu8ets/do_not_install_termux_from_play_store/)에 공지되어 있다.
+
+참고
+**aWhat is x-11 repo and termux-x-11** : https://www.reddit.com/r/termux/comments/o2j8v9/what_is_x11_repo_and_termuxx11/
