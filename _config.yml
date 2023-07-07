@@ -25,7 +25,7 @@ timezone: Asia/Seoul
 title: _kiw6024_
 
 # Sub-Title
-tagline: 반가워요~
+tagline: 반가워요!!
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
@@ -34,7 +34,7 @@ description: >-                        # used by seo meta and the atom feed
 url: ''
 
 github:
-  username: kiw6024             # change to your github username
+  username: kiw6024           # change to your github username
 
 twitter:
   username: kiw6024           # change to your twitter username
