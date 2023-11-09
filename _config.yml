@@ -22,10 +22,10 @@ timezone: Asia/Seoul
 # ↓ --------------------------
 
 # Main Title
-title: _kiw6024_
+title: Hyun
 
 # Sub-Title
-tagline: 반가워요!!
+tagline:
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
