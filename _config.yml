@@ -25,7 +25,7 @@ timezone: Asia/Seoul
 title: Hyun
 
 # Sub-Title
-tagline:
+tagline: 만나서 반가워요
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
