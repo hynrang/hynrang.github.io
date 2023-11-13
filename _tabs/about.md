@@ -1,5 +1,5 @@
 ---
-title: About kiw6024
+title: Introduction
 icon: fas fa-info-circle
 order: 4
 ---
@@ -8,6 +8,9 @@ order: 4
 
 ---
 
-e-mail : [kiw6024@gmail.com](kiw6024@gmail.com)<br>
-GitHub : [https://github.com/kiw6024](https://github.com/kiw6024)
+[https://github.com/kiw6024](https://github.com/kiw6024)
+<br>
+[kiw6024@gmail.com](kiw6024@gmail.com)
+<br>
+[구글 플레이 스토어](https://play.google.com/store/apps/details?id=com.payang.palette&hl=ko-KR)
 
