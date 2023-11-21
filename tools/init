@@ -79,12 +79,7 @@ check_env() {
 
 checkout_latest_release() {
   hash=$(git log --grep="chore(release):" -1 --pretty="%H")
-  if [ -n "$hash" ]; then
-    git reset --hard "$hash"
-  else
-    echo "No release found with 'chore(release):' in the commit message."
-    exit 1
-  fi
+  git reset --hard "$hash"
 }
 
 init_files() {
