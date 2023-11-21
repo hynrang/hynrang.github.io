@@ -4,5 +4,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+[https://github.com/kiw6024](https://github.com/kiw6024)
+<br>
+[kiw6024@gmail.com](kiw6024@gmail.com)
+<br>
+[구글 플레이 스토어](https://play.google.com/store/apps/details?id=com.payang.palette&hl=ko-KR)
