@@ -291,8 +291,9 @@ h1 + .post-meta {
     color: var(--text-muted-color);
   }
 
+  /* 폰트 사이즈를 0.9에서 0.75로 변경함 */
   p {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin-bottom: 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
