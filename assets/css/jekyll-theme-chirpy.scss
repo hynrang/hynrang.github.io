@@ -5,11 +5,11 @@
 
 /* 사이드바 배경색상*/
 @include dark-scheme {
-    --sidebar-bg: #212225;
+  --sidebar-bg: #212225;
 }
 
 /* 게시물 글씨크기 */
 .content {
-    font-size: 0.98rem;
-    /*word-break: keep-all;*/ /* 단어기준 줄넘김인데, 안 예뻐서 보류. */
+  font-size: 0.98rem;
+  /*word-break: keep-all;*/ /* 단어기준 줄넘김인데, 안 예뻐서 보류. */
 }
