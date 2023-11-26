@@ -3,8 +3,8 @@
 
 @import 'main';
 
-/* 사이드바 배경색상*/
-@include dark-scheme {
+/* 사이드바 배경Z색상*/
+@mixin dark-scheme {
     --sidebar-bg: #212225;
 }
 
