@@ -10,7 +10,7 @@
 }
 
 /* 사이드바 배경색상 */
-body {
+html {
   @include dark-scheme {
     --sidebar-bg: #1E1E1F;
   }
