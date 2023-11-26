@@ -5,8 +5,7 @@
 
 /* 사이드바 배경색상*/
 @include dark-scheme {
-    --sidebar-bg: #000000;
-    @content;
+    --sidebar-bg: #212225;
 }
 
 /* 게시물 글씨크기 */
