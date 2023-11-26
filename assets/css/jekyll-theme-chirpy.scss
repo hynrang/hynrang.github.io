@@ -4,8 +4,10 @@
 @import 'main';
 
 /* 사이드바 배경Z색상*/
-@include dark-scheme;
---sidebar-bg: #212225;
+:root {
+    @include dark-scheme;
+    --sidebar-bg: #000000; /* Alpha에서 정의한 값 덮어쓰기 */
+  }
 
 /* 게시물 글씨크기 */
 .content {
