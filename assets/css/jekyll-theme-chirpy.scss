@@ -9,9 +9,9 @@
   /*word-break: keep-all;*/ /* 단어기준 줄넘김인데, 안 예뻐서 보류. */
 }
 
-/* 사이드바 배경색상
-:root {
+/* 사이드바 배경색상 */
+body {
   @include dark-scheme {
     --sidebar-bg: #1E1E1F;
   }
-}*/
+}
