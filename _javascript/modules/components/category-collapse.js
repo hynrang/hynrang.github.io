@@ -6,10 +6,6 @@ const parentPrefix = 'h_';
 const collapse = $('.collapse');
 
 export function categoryCollapse() {
-
-  /* hide all collapsible elements on page load */
-  collapse.collapse('hide');
-
   /* close up top-category */
   collapse.on('hide.bs.collapse', function () {
     /* Bootstrap collapse events. */ const parentId =
