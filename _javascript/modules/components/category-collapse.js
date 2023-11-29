@@ -6,9 +6,14 @@ const parentPrefix = 'h_';
 const collapse = $('.collapse');
 
 export function categoryCollapse() {
+
+  /* 닫힌 상태로 시작하기 */
+  collapse.removeClass('show');
+
   /* close up top-category */
   collapse.on('hide.bs.collapse', function () {
-    /* Bootstrap collapse events. */ const parentId =
+    /* Bootstrap collapse events. */
+    const parentId =
       parentPrefix + $(this).attr('id').substring(childPrefix.length);
     if (parentId) {
       $(`#${parentId} .far.fa-folder-open`).attr(
