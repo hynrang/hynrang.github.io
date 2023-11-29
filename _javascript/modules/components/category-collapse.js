@@ -6,10 +6,6 @@ const parentPrefix = 'h_';
 const collapse = $('.collapse');
 
 export function categoryCollapse() {
-
-  /* 닫힌 상태로 시작하기 */
-  collapse.removeClass('show');
-
   /* close up top-category */
   collapse.on('hide.bs.collapse', function () {
     /* Bootstrap collapse events. */
