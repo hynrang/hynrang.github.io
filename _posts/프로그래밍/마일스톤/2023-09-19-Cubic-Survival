@@ -1,17 +1,24 @@
 ---
-title:  "Cubic Survival"
+title:  "모바일 서바이벌 게임 큐빅 서바이벌"
 
-categories: [마일스톤]
-tags: [마일스톤]
+categories: [프로그래밍, 마일스톤]
+tags: [프로그래밍, 마일스톤]
 
 toc: true
 toc_sticky: true
 
-date: 2023-09-19
-last_modified_at: 2023-09-19
+date: 2023-11-30
+last_modified_at: 2023-11-30
 ---
 
-<br>
+# **들어가며**
+
+
+
+
+
+
+
 
 (서론)
 
@@ -70,6 +77,3 @@ last_modified_at: 2023-09-19
         - 특히 코루틴은 이제 완전 익숙
 
 <br>
-
----
-# 참고
