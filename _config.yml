@@ -10,23 +10,23 @@ lang: ko-KR
 
 timezone: Asia/Seoul
 
-title: kiw6024
+title: hynrng
 
 tagline: 남 일상 엿보기
 
 description: 남 일상 엿보기
 
-url: "https://kiw6024.github.io"
+url: "https://hynrng.github.io"
 
 github:
-  username: kiw6024
+  username: hynrng
 
 twitter:
-  username: kiw6024
+  username: hynrng
 
 social:
-  name: kiw6024
-  email: kiw6024@gmail.com
+  name: hynrng
+  email: hynrng@gmail.com
   links:
     - https://twitter.com/username
     - https://github.com/username
