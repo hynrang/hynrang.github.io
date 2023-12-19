@@ -32,7 +32,7 @@ last_modified_at: 2023-12-13
 # **개발 시작**
 
 ![MainMenu](/assets/img/2023-12-13-cubic-survival-alpha/MainMenu.png){: .shadow }
-_초기의 메인 화면_
+_초기 시작 화면_
 
 미리보기 이미지에도 나타나 있지만
 
