@@ -102,8 +102,5 @@
         "section": "Improvements"
       }
     ]
-  },
-  "dependencies": {
-    "tocbot": "^4.23.0"
   }
 }

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kiw6024.github.io/sitemap.xml
