@@ -1,83 +1,308 @@
 ---
-title:  "모바일 서바이벌 게임 만들기: 기획과 초기 개발"
+title:  "Cubic Survival: 기획과 초기 개발부터"
 
 categories: [프로그래밍, 마일스톤]
-tags: [프로그래밍, 마일스톤]
+tags: [프로그래밍, 마일스톤, 조이스틱, URP]
 image: /assets/img/2023-12-13-cubic-survival-alpha/20230714_191154.gif
 
 toc: true
 toc_sticky: true
 
+mermaid: true
+
 date: 2023-12-13
-last_modified_at: 2023-12-13
+last_modified_at: 2023-12-21
 ---
+
+<!--
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>Bob: Hello, Bob!
+    Bob->>Alice: Hi, Alice!
+```
+-->
 
 # **들어가며**
 
-2023년이 되고 저는 할 일을 또 찾아야 했습니다. 이번 해에는 재밌는 것을 만들어보고 싶다는 생각에 제야의 종이 치고나서 몇 가지 계획을 세워봤죠. 이왕이면 프로그래밍 숙련에도 도움이 되고 제가 재밌게 즐길 수 있는 것으로 말입니다.
+2023년이 찾아오고 저는 할 일을 또 찾아야 했습니다. 이번 해에는 재밌는 것을 만들어보고 싶다는 생각에 제야의 종이 치고나서 몇 가지 계획을 세워봤죠. 이왕이면 프로그래밍 숙련에도 도움이 되고 제가 재밌게 즐길 수 있는 것으로 말입니다.
 
-생뚱맞은 3개 정도 아이디어를 생각해보니 **육하원칙 기반 파이썬 라이브러리, 미러리스풍의 카메라 어플리케이션, 2D 모바일 게임** 등이 나왔습니다. 각각 [파이썬 기반 자동주식거래 프로그램](https://hynrang.github.io/posts/ASTP/)이나 Android Studio로 간단한 어플리케이션을 빌드해본 경험, 또는 [개인 유니티 프로젝트](https://hynrang.github.io/posts/LAV/)에서 파생된 것이었죠.
+생뚱맞은 3개 정도 아이디어를 생각해보니 **육하원칙 기반 파이썬 라이브러리, 미러리스풍의 카메라 어플리케이션, 2D 모바일 게임** 등이 나왔습니다. 각각 **[파이썬 기반 프로그램](https://hynrang.github.io/posts/ASTP/)**이나 Android Studio로 간단한 어플리케이션을 빌드해본 경험, 또는 **[개인 유니티 프로젝트](https://hynrang.github.io/posts/LAV/)**에서 파생된 것이었죠.
 
-그런데 게임개발 쪽이 너무 재밌어 보였습니다. 예전에 유니티를 다루어봤을 때 유니티 엔진 그 자체도 신기했지만, 당시에 에셋을 자급자족해서 사용해볼 수 있다는게 굉장히 재미있었거든요. 생고생이기는 하지만 남들에겐 없는 소재로 결과물을 만든다는 그 경험 자체가 매력적이었습니다. 마침 객체지향에 흥미가 있던 참이라, 객체지향 언어 C#을 제대로 다시 사용해보고 싶은 마음에 막무가내로 프로젝트를 시작했습니다.
+그런데 게임개발 쪽이 너무 재밌어 보였습니다. 예전에 유니티를 다룬 경험 자체가 신기하게 남았기도 했고 당시에 에셋을 자급자족해서 사용해볼 수 있다는게 굉장히 재미있었거든요. 생고생이기는 하지만 남들에겐 없는 소재의 결과물을 만든다는 테마가 너무 매력적이었습니다. 마침 객체지향에 흥미가 있던 참이라, 객체지향 언어 C#을 제대로 다시 사용해보고 싶은 마음에 막무가내로 프로젝트를 시작했습니다.
 
 # **프로젝트 개요**
 
-저는 이 프로젝트에 애착이 점점 불을줄 몰랐습니다. 정말로요, 객체지향의 특징만 빠르게 구현해보고 다음 프로젝트를 시작하자는 마음으로 아주 가볍게 시작했을 뿐이라서 이 프로젝트에는 "부드럽고 특이한 사용자경험을 구현하고 싶다", "필드를 돌아다니며 적을 처치하는 액션 게임을 만들어보고 싶다" 정도를 제외하면 명확한 기획이나 목표라고 할 만한 것이 없습니다. 그나마, 아래 정도를 특기할 수 있을 것 같네요.
+```mermaid
+gantt
+    title Cubic Survival 간트 차트
+    초기 개발: crit, 2023-02-07, 60d
+    후기 개발: a1, 2023-06-19, 150d
+    스토어 첫 등록: crit, milestone, 2023-03-28, 0d
+    스토어 재등록: a3, 2023-10-29, 18d
+```
 
-- Lerp을 이용하여 씬 전환이나 카메라의 움직임 등을 부드럽게 처리할 것
-- 플레이어와 시스템의 상호작용이 일어날 때마다 햅틱 피드백(Vibration)을 줄 것
+프로젝트 시작부터 마무리까지를 간트 차트로 정리했습니다. 차트에서 확인할 수 있듯이, Cubic Survival 프로젝트는 기간상 초기 개발 기간과 중기 개발 기간으로 구분되기 때문에, 각각을 두 개 포스트에 나누어 개발과정을 리뷰하려 합니다. 따라서 이 포스트는 빨간색으로 강조된 '초기 개발'의 내용을 담고 있습니다.
+
+어느정도 마무리를 지은 지금에서야 말할 수 있는 것이지만, 저는 이 프로젝트에 애착이 불을줄 몰랐습니다. 객체지향의 대표적인 특징만 빠르게 구현해보고 다음 프로젝트으로 넘어가자는 마음으로 아주 가볍게 시작했을 뿐이었죠.  
+그래서 이 프로젝트에는 "부드럽고 특이한 사용자경험을 구현하고 싶다", "필드를 돌아다니며 적을 처치하는 액션 게임을 만들어보고 싶다" 정도를 제외하면 명확한 기획이나 목표라고 할 만한 것이 없습니다. 그나마 아래 정도를 특기할 수 있을 것 같네요.
+
+- 시각적 디자인은 미니멀리즘을 추구할 것
+- 씬 전환이나 카메라의 움직임 등을 부드럽게 처리할 것
 - 객체지향 설계를 통해 상속과 다형성을 구현할 것
 - 코루틴을 사용할 것
 
-결과적으로 위 목표 모두 달성하긴 했는데, 각각의 목표를 어디에서 어떻게 달성했는지는 글이 길어지니 다음 글에서 구체적으로 다루도록 하겠습니다.
+결과적으로 위 목표 모두 차례차례 달성하긴 했는데요, 각각 어디에서 어떻게 달성했는지는 코루틴을 제외하고 다음 글에서 구체적으로 다루도록 하겠습니다.
 
-# **개발 시작**
+# **초기 개발**
 
 ![MainMenu](/assets/img/2023-12-13-cubic-survival-alpha/MainMenu.png){: .shadow }
-_극 초기의 시작 화면_
+_초기의 시작 화면. 화면 중앙의 버튼을 누르면 플레이가 시작되도록 만들었습니다._
 
-처음에는 맹한 메인화면만큼이나 허접했습니다. 그래서 전형적인 바텀업 방식으로 진행하게 되었죠.
+프로젝트의 비전이 불명확했기 때문에 자연스럽게 클론코딩 바텀업의 느낌으로 접근하게 되었습니다. 우선 소단계에서 유명 게임의 기능들 중에 따라만들 수 있는 것을 따라만들어보자는 식으로요.
 
-### **조이스틱 구현**
+### **조이스틱**
 
-클론 코딩 느낌으로 접근하기 시작하면서 "필드를 돌아다니며 적을 처치하는" 2D 모바일 게임 중에는 소울 나이트와 특히 브롤스타즈를 참고했고, 이 두 게임에서 사용하고 있는 정도의 조이스틱을 구현하기로 했습니다.  
-처음에는 오토에임을 생각하지도 못했어서, 브롤스타즈에서 구현된 대로 화면 왼쪽에 플레이어 이동을 위한 조이스틱 하나와 오른쪽에 조준용 조이스틱 하나를 만들기로 했죠.
+"필드를 돌아다니며 적을 처치하는" 2D 모바일 게임 중에는 소울 나이트와 특히 브롤스타즈를 참고했고, 이 두 게임에서 사용하고 있는 정도의 조이스틱을 구현하고자 했습니다. 처음에는 오토에임을 생각하지도 못했어서, 브롤스타즈에서 구현된 대로 화면 왼쪽에 플레이어 이동을 위한 조이스틱 하나와 오른쪽에 조준용 조이스틱 하나를 만들기로 했습니다.
 
-구현에 있어서는 `Unity​Engine.​Input​System.​On​Screen` 패키지의 `OnScreenStick` 클래스를 활용했습니다. 이 클래스에 기반한 새 스크립트를 두 개를 만들고 각각 위상차값에 따라 플레이어 오브젝트와 조준용 투명 오브젝트를 `Translate`하도록 만들었죠. `​On​Screen` 패키지를 다루는 국내 자료가 별로 없어서 **[공식 문서](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/api/UnityEngine.InputSystem.OnScreen.OnScreenStick.html?q=OnScreenStick)**를 많이 참고했습니다. 
+`Unity​Engine.​Input​System.​On​Screen` 패키지의 `OnScreenStick` 클래스를 활용해, 이 클래스에 기반한 새 스크립트를 두 개를 만들고 각각 위상차값에 따라 플레이어와 조준용 투명 오브젝트를 `Translate()`하도록 만들었습니다. `​On​Screen` 패키지를 다루는 국내 자료가 별로 없어서 **[공식 문서](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/api/UnityEngine.InputSystem.OnScreen.OnScreenStick.html?q=OnScreenStick)**를 많이 참고했습니다. 
 
 <!--시각적으로 중심점과 조이스틱이 이어져있는 느낌이 들도록 `LineRenderer`를 사용하려 하기도 했었는데, 당시에는 UI상에 적용할 실력이 부족해서 구현하지 못했다는 아쉬움이 있습니다.-->
 
-(조이스틱 작동 사진?)
-(봐줄만한 수준이 완성되었다?)
+(조이스틱 작동 사진?)<br>(봐줄만한 수준이 완성되었다?)
 
-추가로, 브롤스타즈에서 조이스틱을 중앙으로 옮길 때마다 햅틱 피드백을 주는 것에서 영감을 받아 `OnPointerDown`, `OnPointerUp`시 진동 피드백이 오도록 구성했습니다.
-
-### **URP 적용**
-
-(Light를 적용하고 싶었다) URP(Universal Render Pipeline)
-
-### **인벤토리 구현**
-
-(여기야말로 내가 아주 많이 고민한 부분이지. 내 게임의 독자적인 면모는 여기에서 나온다.)
-
-
-
-
-
-
-![Orbit1](/assets/img/2023-12-13-cubic-survival-alpha/Orbit1.gif){: .shadow .w-50 }
-_무기 공전_
-
-이때는 아래 정도의 코드를 썼던 것 같습니다.
+여담으로, 스틱이 탄성력을 가지고 튕기듯 중심점으로 돌아온다거나, 스틱과 중심점을 LineRenderer을 통해 시각적으로 연결한다던가, 아니면 무기별로 조이스틱 조작법이 달라진다던가 하는 등의 구현하고 싶었던 아이디어가 많았는데요, 조이스틱을 만들 당시 실력이 부족하기도 했고 게임 구조와 충돌하는 경우도 있어서 구현하지는 못했습니다.
 
 ```cs
-    float GetAngle(Vector2 start, Vector2 end)
+public void OnPointerUp(PointerEventData eventData)
+{
+    Vibration.Vibrate((long)10);
+    /* ... */
+}
+```
+{: file="Joystick.cs" }
+
+추가로, 브롤스타즈에서 조이스틱을 중앙으로 옮길 때마다 햅틱 피드백을 주는 것을 비슷하게 구현하기 위해 `OnPointerDown()`, `OnPointerUp()`시 진동 피드백이 오도록 만들었습니다.
+
+### **인벤토리**
+
+게임 구조가 윤곽이 잡혀가다보니 아이템을 얻어 저장해두었다가 나중에 꺼내 사용할 수 있는 인벤토리가 있으면 좋겠다는 생각이 들었습니다. 여기는 스스로의 고민을 좀 한 부분인데요, 많은 게임에서 인벤토리 UI를 별도의 창으로 구성하거나 아예 만들지 않고 버튼 토글식으로 만들고 있었거든요. 저는 둘 다 마음에 들지 않았습니다. 아래의 두 개 조건은 만족해야 한다고 생각했어요.
+
+- 인벤토리에 5개 이상 아이템을 담을 수 있을 것
+- 인벤토리 UI가 플레이 경험을 해치지 않을 것
+
+그래서 오른쪽 조이스틱에 할당되어있던 수동 조준 기능은 오토에임으로 대체하고 새로운 인벤토리 액세스 기능을 할당했습니다. 오른쪽 조이스틱을 꾹 누르면 인벤토리가 열리고, 손가락을 떼면 인벤토리가 닫히는 식으로요. 인벤토리는 오브젝트 8개를 이용해 액세스 시 플레이어 주변으로 오브젝트가 펼쳐지도록 했습니다.
+
+(인벤토리 여닫히는 gif)
+
+```cs
+public struct InventoryData
+{
+    public string[]     Code;
+    public GameObject[] UI;
+    public GameObject[] ItemUI;
+    public GameObject   Weapon;
+    public int[]        Rounds;
+}
+
+for (int i = 0; i < InventoryData.InventoryUI.Length; i++)
+    InventoryData.UI[i].transform.position = Vector3.Lerp(currentPos, targetPos[i], 2*t);
+```
+{: file="Inventory.cs" }
+
+이를 위해 구조체를 하나 만들었는데요, 아이템 식별자, 인벤토리 오브젝트, 아이템 오브젝트, 무기 데이터, 남은 탄창수 5개 데이터를 총괄하기 위해서입니다.  
+아이템은 필드에 스폰되는 용도의 오브젝트 하나와 UI로 동작할 오브젝트 하나로 분할하여, 플레이어가 필드 아이템을 획득하면 아이템 UI 오브젝트가 `ItemUI` 배열에 추가되도록 만들었습니다.
+
+|아이템|ID|
+|---|---|
+|권총|WPPSTL|
+|산탄총|WPPASG|
+|미니건|WPMING|
+|이동속도 증가 패시브|PVMSPD|
+|공격속도 증가 패시브|PVATKR|
+|...|...|
+
+아이템 식별자는 위와 같이 유형을 나타내는 2자리와 아이템 이름을 나타내는 4자리를 조합해 만들었습니다. 재미있었던 것은 만들 때는 모르고 있었는데 아이템이 점점 많아지면서 "구분을 위해 고유 코드를 하나씩 만들어야겠다!"라고 자연스레 생각했던 그 발상이 나중에 알고보니 "식별자"라는 이름까지 있는 개념이었더라고요. 써보니 꽤 유용했어서 다음에도 계속 활용하려고 해요.
+
+### **적 스폰 및 동작**
+
+처음에는 포탈 오브젝트를 만들어 적 스폰 지점을 지정하는 방법을 쓰기도 했는데요, 탕탕특공대처럼 적이 주변에서 쫓아오는 것이 좋을 것 같아 플레이어 주변 영역에서 무작위로 생성되는 코드를 작성했습니다.
+
+(적 스폰 장면)
+```cs
+void spawnEnemy(GameObject Enemy, float east, float west, float south, float north)
+{
+    float spawnPointX = Random.Range(west, east);
+    float spawnPointY = Random.Range(south, north);
+    /* ... */
+    instantiatedEnemy = Instantiate(
+        enemy,
+        player.transform.position + new Vector3(spawnPointX, spawnPointY),
+        transform.rotation
+    );
+}
+/* ... */
+IEnumerator spawnEnemies()
+{
+    for (int i = 0; i < data.spawnCount; i++)
     {
-        Vector2 v2 = end - start;
-        return Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
+        spawnEnemy(Enemy, east, west, south, north);
+        yield return new WaitForSeconds(spawnDelay);
     }
+}
+```
+{: file="GameSystem.cs" }
+
+`east`, `west`, `south`, `north` 4개 매개변수를 기반으로 플레이어로부터 일정거리 떨어진 무작위 좌표값을 생성하는 함수를 만들어 사용했습니다. 플레이어 주변에 적이 갑자기 나타나지 않게 해당 좌표값은 화면이 렌더링하는 영역 밖으로 지정되도록 별도로 처리했습니다.
+
+코루틴을 사용해본 계기가 되기도 했는데요, 아두이노의 `Delay()`처럼 딜레이를 간단히 구현할 수 있는 방법이 유니티에는 없나 봅니다. 대신 비슷한 기능을 구현할 때 대부분 코루틴 사용을 권장하고 있어서 코루틴을 하나 만들어 `spawnDelay` 값만큼 간격을 두고 스폰되도록 만들었습니다.
+
+```cs
+void Move()
+{
+    dirTowardsPlayer = (player.transform.position - gameObject.transform.position).normalized;
+    transform.Translate(dirTowardsPlayer * speed * Time.deltaTime);
+}
+/* ... */
+void OnCollisionEnter2D(Collision2D collider)
+{
+    if (collider.gameObject.tag == "player")
+    {
+        player.hp -= damage;
+
+        Vibration.Vibrate((long)20);
+        Destroy(gameObject);
+    }
+}
+```
+{: file="Enemy.cs" }
+
+`OnCollision`을 이용해 플레이어와의 충돌이 일어나면 `damage`만큼 플레이어의 체력을 감소시키고, 충돌한 적은 `Destroy()`되도록 만들었습니다. 충돌할 때 진동 피드백을 주는 코드도 빠트리지 않고 넣었네요.
+
+### **무기 발사**
+
+(짧은 개요나 서론)
+
+(발사하는 장면 GIF)
+
+```cs
+for (int i = 0; i < bulletCount; i++)
+{
+    instantBullet = Instantiate(
+        bullet,
+        FirePosition.transform.position,
+        Quaternion.Euler(
+            0, 0, transform.rotation.eulerAngles.z + Random.Range(MOA * -1, MOA) + 180
+        )
+    );
+    Destroy(instantBullet, 1);
+}
+```
+{: file="Weapon.cs" }
+
+총알은 무기별로 부착되어 있는 `FirePosition` 자식 오브젝트에서 플레이어가 조준하고 있는 방향으로 생성되어 직진하다가, 생성된지 1초가 지나면 사라지도록 만들었습니다. 탄퍼짐 효과를 구현하기 총알이 생성될 때 무기별로 지정된 `MOA` 변수값 내에서 `Random.Range()`로 각도의 Z축 값이 조금씩 보정되도록 만들었습니다.
+
+나중에 알고보니 총알 발사와 같이 오브젝트의 인스턴스화가 빈번히 일어나는 경우에 오브젝트 풀링(Object Pooling)이라는 최적화 기법을 사용할 수 있더라고요. 향후에 시간이 될 때 적용해보려고 합니다.
+
+```cs
+void hasHitEnemy()
+{
+    hit = Physics2D.Raycast(transform.position, transform.right, 100);
+
+    if (hit.collider != null && hit.distance < 1)
+    {
+        if (hit.collider.gameObject.tag == "enemy")
+        {
+            if (hit.collider.GetComponent<Enemy>().HP > 0)
+                Destroy(gameObject);
+            /* ... */
+        }
+        /* ... */
+    }
+}
+```
+{: file="Bullet.cs" }
+
+충돌검사는 레이캐스트를 이용했습니다. 그런데 총알 속도가 워낙 빠르다보니 레이캐스트로도 충돌검사가 제대로 이루어지지 않아 총알이 적을 그대로 통과해버리는 문제가 있더라고요. Ray 길이를 증가시키거나 Collider 범위를 넓혀도 해결이 되지 않아서 아예 `hit.distance < 1` 조건을 추가해 해결했습니다.
+
+# **비주얼**
+
+앞의 단락이 "필드를 돌아다니며 적을 처치하는 액션 게임을 만들어보고 싶다"에 대한 내용이었다면, 이 단락은 "부드럽고 특이한 사용자경험을 구현하고 싶다"에 대한 내용입니다. 큼지막한 비주얼 관련 작업은 대부분 공백기를 지난 후기 개발 작업에서 이루어졌기 때문에 다음 글에서 다루도록 하겠습니다.
+
+### **카메라**
+
+```cs
+void Move()
+{
+    transform.position = Vector3.Lerp(
+        transform.position,
+        player.transform.position + new Vector3(0, 0, -10),
+        12 * Time.deltaTime
+    );
+}
+```
+{: file="Camera.cs" }
+
+사실 프로젝트를 시작하고 가장 먼저 만든 기능이었던 것 같은데요, Lerp를 통해 플레이어 위치를 부드럽게 따라가도록 만들었습니다.
+
+(인벤토리 여닫음 GIF)
+```cs
+void Vignette()
+{
+    targetVignetteValue = inventoryIsOpen ? 0.35f : 0f;
+
+    vignette.intensity.value  = Mathf.Lerp(
+        vignette.intensity.value,
+        targetVignetteValue,
+        Time.deltaTime * speed
+    );
+}
+```
+{: file="Camera.cs" }
+
+**[사진](https://hynrang.github.io/posts/%EC%9E%84%EC%9D%B8%EB%85%84%EC%9D%98-%EC%82%AC%EC%A7%84/)**을 보정할 때 어도비 라이트룸이라는 프로그램이 제공하는 기능 중에 화면 가장자리를 어둡게 만드는 비네팅(Vignette)이라는 옵션이 있습니다. 이 옵션은 시선을 화면 중앙으로 유도하는 효과를 가지는데요, 마침 **[포스트 프로세싱](https://docs.unity3d.com/kr/2020.3/Manual/PostProcessingOverview.html)**을 통해 비네팅을 조절할 수 있게 되어 있어서 인벤토리가 열릴 때 이 효과를 넣으면 좋겠다고 생각했습니다.
+
+마찬가지로 Lerp를 적용했습니다.
+
+### **URP**
+
+유니티의 기본 2D Light는 기능이 상당히 빈약하더라고요. 대신 대안으로 제공하는 **[URP(Universal Render Pipeline)](https://unity.com/srp/universal-render-pipeline)**를 일반적으로 사용하는 것 같았습니다.
+
+(유니티 인스펙터창의 Light2D 컴포넌트 창 캡처)
+
+적용하고 나니까 비주얼이 아주 좋아졌습니다.
+
+(GPU 리소스를 꽤 잡아먹어서 삭제)
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
+![Orbit1](/assets/img/2023-12-13-cubic-survival-alpha/Orbit1.gif){: .shadow }
+_무기 공전_
+
+아래 코드 정도로 동작합니다.
+
+```cs
+float GetAngle(Vector2 start, Vector2 end)
+{
+    Vector2 v2 = end - start;
+    return Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
+}
 ```
 
 # **마치며**
 
-(대충 어떤어떤 느낌이 있었고, 다음 글에서 이어서 더 볼 수 있다는 내용)
+- 대충 어떤어떤 느낌이 있었고, 다음 글에서 이어서 더 볼 수 있다는 내용
+- 이름은 ChatGPT에게 맡겨서 지었음.
+- 궁금해서 스토어 등록 해본 적이 있음. 후회하는데, 다음 글에서 다루도록 하겠음.
