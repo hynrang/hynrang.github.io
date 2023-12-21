@@ -1,7 +1,5 @@
 {% comment %}
   Remove the line number of the code snippet.
-  no-linenos.html 여기서는 마크다운 문법으로 작성된 텍스트를 처리함.
-  이것을 HTML 코드로 변환시키는 곳은 home.html임.
 {% endcomment %}
 
 {% assign content = include.content %}
@@ -9,8 +7,4 @@
 {% if content contains '<td class="rouge-gutter gl"><pre class="lineno">' %}
   {% assign content = content | replace: '<td class="rouge-gutter gl"><pre class="lineno">', '<!-- <td class="rouge-gutter gl"><pre class="lineno">'%}
   {% assign content = content | replace: '</td><td class="rouge-code">', '</td> --><td class="rouge-code">' %}
-{% endif %}
-
-{% if content contains '#' %}
-  {% assign content = content | replace: '들어가며', '' %}
 {% endif %}
