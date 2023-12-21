@@ -1,51 +1,81 @@
 # The Site Configuration
-#
-# Reference
-#   - Language:       http://www.lingoes.net/en/translator/langcode.htm
-#   - jekyll-seo-tag: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 
+# Import the theme
 theme: jekyll-theme-chirpy
 
+# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
+# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
+# otherwise, the layout language will use the default value of 'en'.
 lang: ko-KR
 
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Seoul
 
-title: hynrang
+# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+# ↓ --------------------------
 
-tagline: 남 일상 엿보기
+title: hynrang # the main title
+
+tagline: 남 일상 엿보기 # it will display as the sub-title
 
 description: 남 일상 엿보기
 
+# Fill in the protocol & hostname for your site.
+# e.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://hynrang.github.io"
 
 github:
-  username: hynrng
+  username: hynrng # change to your github username
 
 twitter:
-  username: hynrng
+  username: hynrng # change to your twitter username
 
 social:
+  # Change to your full name.
+  # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: hynrng
-  email: hynrng@gmail.com
+  email: hynrng@domain.com # change to your email address
   links:
-    - https://twitter.com/username
-    - https://github.com/username
+    # The first element serves as the copyright owner's link
+    - https://twitter.com/username # change to your twitter homepage
+    - https://github.com/username # change to your github homepage
+    # Uncomment below to add more social links
+    # - https://www.facebook.com/username
+    # - https://www.linkedin.com/in/username
 
 google_site_verification: # fill in to your verification string
 
-# --- The end of `jekyll-seo-tag` settings ---
+# ↑ --------------------------
+# The end of `jekyll-seo-tag` settings
 
 google_analytics:
   id: # fill in your Google Analytics ID
 
+# Prefer color scheme setting.
+#
+# Note: Keep empty will follow the system prefer color by default,
+# and there will be a toggle to switch the theme between dark and light
+# on the bottom left of the sidebar.
+#
+# Available options:
+#
+#     light  - Use the light color scheme
+#     dark   - Use the dark color scheme
+#
 theme_mode: # [light|dark]
 
-# 이미지 정상 업로드 위한 주석처리
+# The CDN endpoint for images.
+# Notice that once it is assigned, the CDN url
+# will be added to all image (site avatar & posts' images) paths starting with '/'
+#
+# e.g. 'https://cdn.com'
 # img_cdn: "https://chirpy-img.netlify.app"
 
+# the avatar on sidebar, support local or CORS resources
 avatar: "/assets/img/favicons/NongDam.png"
 
-toc: true # boolean type, the global switch for TOC in posts.
+# boolean type, the global switch for TOC in posts.
+toc: true
 
 comments:
   active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
