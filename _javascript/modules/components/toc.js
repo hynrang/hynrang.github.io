@@ -10,3 +10,4 @@ export function toc() {
       scrollSmooth: false,
     });
   }
+}
