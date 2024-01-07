@@ -1,8 +1,8 @@
 ---
-title:  "Cubic Survival: 후기 개발과 스토어 등록까지"
+title:  "Cubic Survival: 나머지 개발과 스토어 등록까지"
 
 categories: [프로그래밍, 마일스톤]
-tags: [프로그래밍, 마일스톤]
+tags: [프로그래밍, 유니티, 애니메이션]
 image: /assets/img/2023-12-13-cubic-survival-beta/20231213_235336.gif
 
 toc: true
@@ -14,11 +14,11 @@ last_modified_at: 2023-12-13
 
 # **들어가며**
 
-# **중기 개발**
+# **후기 개발**
 
 ### **객체지향 설계**
 
-### **EXP**
+### **EXP 바**
 
 ### **크리티컬**
 

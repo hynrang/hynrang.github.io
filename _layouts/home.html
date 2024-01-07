@@ -82,6 +82,7 @@ refactor: true
                   이 코드 작동할 것 같은데 왜 작동 안하냐.
                 {% endcomment %}
                 
+                {% assign content = content | replace: '들어가며', '' %}
                 {{ content | markdownify | strip_html | truncate: 200 | escape }}
               </p>
             </div>
