@@ -27,7 +27,7 @@ gantt
 
 # **비주얼 디자인**
 
-### **무기 디자인**
+### **무기**
 
 ![light2d](/assets/img/2023-12-13-cubic-survival-beta/light2d.gif){: w="960" h="464" .shadow }
 
@@ -50,7 +50,7 @@ gantt
     - 섬광에 Light
 
 
-### **파티클 이펙트**
+### **피격 파티클 이펙트**
 
 - 그래프 만든거 보여주자
 
