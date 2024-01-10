@@ -48,7 +48,7 @@ Cubic Survival의 개발기간은 기간상 초기 개발 기간과 중기 개�
 # **초기 개발**
 
 ![beta_play](/assets/img/2023-12-13-cubic-survival-alpha/beta_play.gif){: w="960" .shadow }
-_극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트가 발생하는 것을 구상했었다._
+_극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트가 발생하면 어떨까 하고 생각했었다._
 
 프로젝트의 비전이 약했기 때문에 자연스럽게 클론코딩 느낌으로, 우선 소단계에서 유명 게임의 기능들 중에 따라만들 수 있는 것을 따라만들어보자는 식으로 접근하게 되었습니다.
 
@@ -166,17 +166,22 @@ for (int i = 0; i < InventoryData.InventoryUI.Length; i++)
 
 ![shooting](/assets/img/2023-12-13-cubic-survival-alpha/shooting.gif){: w="960" .shadow }
 ```cs
-for (int i = 0; i < bulletCount; i++)
+if (shotTimer > fireThreshold)
 {
-    instantBullet = Instantiate(
-        bullet,
-        FirePosition.transform.position,
-        Quaternion.Euler(
-            0, 0, transform.rotation.eulerAngles.z + Random.Range(MOA * -1, MOA) + 180
-        )
-    );
-    Destroy(instantBullet, 1);
+    for (int i = 0; i < bulletCount; i++)
+    {
+        instantBullet = Instantiate(
+            bullet,
+            FirePosition.transform.position,
+            Quaternion.Euler(
+                0, 0, transform.rotation.eulerAngles.z + Random.Range(MOA * -1, MOA) + 180
+            )
+        );
+        Destroy(instantBullet, 1);
+    }
 }
+
+shotTimer += Time.deltaTime;
 ```
 {: file="Weapon.cs" }
 ```cs
