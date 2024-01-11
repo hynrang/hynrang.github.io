@@ -3,7 +3,7 @@ title:  "Cubic Survival: 기획과 초기 개발부터"
 
 categories: [프로그래밍, 마일스톤]
 tags: [프로그래밍, 유니티, 조이스틱, URP]
-image: /assets/img/2023-12-13-cubic-survival-alpha/playscene.gif
+image: /2023-12-13-cubic-survival-alpha/playscene.gif
 
 toc: true
 toc_sticky: true
@@ -47,7 +47,7 @@ Cubic Survival의 개발기간은 기간상 초기 개발 기간과 중기 개�
 
 # **초기 개발**
 
-![beta_play](/assets/img/2023-12-13-cubic-survival-alpha/beta_play.gif){: w="960" .shadow }
+![beta_play](/2023-12-13-cubic-survival-alpha/beta_play.gif){: w="960" .shadow }
 _극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트가 발생하면 어떨까 하고 생각했었다._
 
 프로젝트의 비전이 약했기 때문에 자연스럽게 클론코딩 느낌으로, 우선 소단계에서 유명 게임의 기능들 중에 따라만들 수 있는 것을 따라만들어보자는 식으로 접근하게 되었습니다.
@@ -58,7 +58,7 @@ _극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트�
 
 일반적인 2D 모바일 게임에 등장할 만한 조이스틱을 구현하고자 했습니다. 왼쪽에 플레이어 이동을 위한 조이스틱 하나와 오른쪽에 조준용 조이스틱 하나를 만들기로 했죠.
 
-![joystick](/assets/img/2023-12-13-cubic-survival-alpha/joystick.gif){: w="960" .shadow }
+![joystick](/2023-12-13-cubic-survival-alpha/joystick.gif){: w="960" .shadow }
 
 만들 때는 `Unity​Engine.​Input​System.​On​Screen` 패키지의 `OnScreenStick` 클래스를 활용해, 이 클래스에 기반한 새 스크립트를 두 개를 만들고 각각 위상차에 따라 플레이어와 조준용 투명 오브젝트를 `Translate()`하도록 만들었습니다. `​On​Screen` 패키지를 다루는 국내 자료가 별로 없어서 **[공식 문서](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/api/UnityEngine.InputSystem.OnScreen.OnScreenStick.html?q=OnScreenStick)**를 많이 참고했어요.
 
@@ -66,7 +66,7 @@ _극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트�
 
 ### **적 스폰 및 동작**
 
-![enemycoming](/assets/img/2023-12-13-cubic-survival-alpha/enemycoming.gif){: w="960" .shadow }
+![enemycoming](/2023-12-13-cubic-survival-alpha/enemycoming.gif){: w="960" .shadow }
 ```cs
 void spawnEnemy(GameObject Enemy, float east, float west, float south, float north)
 {
@@ -95,7 +95,7 @@ IEnumerator spawnEnemies()
 ```
 {: file="GameSystem.cs" }
 
-처음에는 포탈 오브젝트를 만들어 지정된 지점에서 적이 `Instantiate()`되도록 만들어 사용하기도 했는데, 만들어지고 난 후의 모습이 너무 단조로울 것 같아 위처럼 적이 플레이어 주위에서 생성되는 코드를 작성했습니다.
+처음에는 포탈 오브젝트를 만들어 지정된 지점에서 적이 인스턴스화되도록 만들어 만들기도 했는데, 만들어지고 난 후의 모습이 너무 단조로울 것 같아 위처럼 적이 플레이어 주위에서 생성되는 코드를 작성했습니다.
 
 `east`, `west`, `south`, `north` 4개 매개변수를 기반으로 플레이어로부터 일정거리 떨어진 무작위 좌표값을 생성하도록 했습니다. 플레이어 주변에 적이 갑자기 나타나지 않게 해당 좌표값은 화면이 렌더링하는 영역 밖으로 지정되도록 별도로 처리했어요.
 
@@ -131,7 +131,7 @@ void OnCollisionEnter2D(Collision2D collider)
 
 저는 인벤토리가 여러 개 아이템을 담을 수 있으면서도 그 UI가 플레이 경험을 해치지 않았으면 했습니다. 그래서 오른쪽 조이스틱에 할당되어있던 수동 조준 기능은 오토에임으로 대체하고, 새로운 인벤토리 액세스 기능을 할당했어요. 오른쪽 조이스틱을 꾹 누르면 인벤토리가 열리고, 손가락을 떼면 인벤토리가 닫히는 식으로요.
 
-![inventory](/assets/img/2023-12-13-cubic-survival-alpha/inventory.gif){: w="960" .shadow }
+![inventory](/2023-12-13-cubic-survival-alpha/inventory.gif){: w="960" .shadow }
 ```cs
 public struct InventoryData
 {
@@ -164,7 +164,7 @@ for (int i = 0; i < InventoryData.InventoryUI.Length; i++)
 
 ### **무기 발사**
 
-![shooting](/assets/img/2023-12-13-cubic-survival-alpha/shooting.gif){: w="960" .shadow }
+![shooting](/2023-12-13-cubic-survival-alpha/shooting.gif){: w="960" .shadow }
 ```cs
 if (shotTimer > fireThreshold)
 {
@@ -215,7 +215,7 @@ void hasHitEnemy()
 
 ### **카메라**
 
-![camera](/assets/img/2023-12-13-cubic-survival-alpha/camera.gif){: w="960" .shadow }
+![camera](/2023-12-13-cubic-survival-alpha/camera.gif){: w="960" .shadow }
 ```cs
 void Move()
 {
@@ -247,8 +247,8 @@ void Vignette()
 
 ### **URP**
 
-![urp](/assets/img/2023-12-13-cubic-survival-alpha/urp.gif){: w="960" .shadow }
-<!--![unity_urp](/assets/img/2023-12-13-cubic-survival-alpha/unity_urp.png){: w="960" .shadow }-->
+![urp](/2023-12-13-cubic-survival-alpha/urp.gif){: w="960" .shadow }
+<!--![unity_urp](/2023-12-13-cubic-survival-alpha/unity_urp.png){: w="960" .shadow }-->
 
 처음에는 Unity2D 환경의 기본 빛 효과를 어찌저찌 사용하다가, 여러군데 아쉬움이 있어 대안으로 **[URP(Universal Render Pipeline)](https://unity.com/srp/universal-render-pipeline)**를 적용하고 나니까 비주얼이 아주 좋아졌습니다. 기본적으로도 부드럽게 떨어지는 예쁜 빛 효과를 제공하면서도, 예를 들어 Falloff Strength 옵션을 조절해 더 은은하거나 화려한 빛을 만든다던가, Shadows 옵션으로 위처럼 빛과 그림자 효과를 연출하거나 할 수 있어서 정말 유용하게 사용했어요.
 

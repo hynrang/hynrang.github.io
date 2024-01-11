@@ -41,9 +41,9 @@ google_analytics:
 theme_mode: # [light|dark]
 
 # 이미지 정상 업로드 위한 주석처리
-# img_cdn: "https://chirpy-img.netlify.app"
+img_cdn: "https://cdn.jsdelivr.net/gh/hynrang/hynrng.github.io-image@master"
 
-avatar: "/assets/img/favicons/NongDam.png"
+avatar: "/favicons/NongDam.png"
 
 toc: true # boolean type, the global switch for TOC in posts.
 
