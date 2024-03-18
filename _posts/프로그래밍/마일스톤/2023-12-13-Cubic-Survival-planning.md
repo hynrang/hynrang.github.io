@@ -1,5 +1,5 @@
 ---
-title:  "Cubic Survival: 기획과 초기 개발부터"
+title:  "모바일 슈팅 게임: 기획과 초기 개발 과정"
 
 categories: [프로그래밍, 마일스톤]
 tags: [프로그래밍, 유니티, 조이스틱, URP]
@@ -10,8 +10,8 @@ toc_sticky: true
 
 mermaid: true
 
-date: 2023-12-13
-last_modified_at: 2023-12-21
+date: 2023-12-22
+last_modified_at: 2023-12-22
 ---
 
 # **들어가며**
@@ -47,14 +47,14 @@ Cubic Survival의 개발기간은 기간상 초기 개발 기간과 중기 개�
 
 # **초기 개발**
 
-![beta_play](/2023-12-13-cubic-survival-alpha/beta_play.gif){: w="960" .shadow }
+![beta-play](/2023-12-13-cubic-survival-alpha/beta-play.gif){: w="960" .shadow }
 _극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트가 발생하면 어떨까 하고 생각했었다._
 
 프로젝트의 비전이 약했기 때문에 자연스럽게 클론코딩 느낌으로, 우선 소단계에서 유명 게임의 기능들 중에 따라만들 수 있는 것을 따라만들어보자는 식으로 접근하게 되었습니다.
 
 처음에는 "필드를 돌아다니며 적을 처치하는 액션 게임"으로 고등학교 때 친구들과 재미있게 플레이한 기억이 있는 소울 나이트와 브롤스타즈를 참고했습니다. 다만 "이 게임을 따라만들어보자", "이런 기능을 똑같이 만들어보자" 이런 느낌은 아니고, 대신 2D 모바일 플랫폼의 관점에서 "이런 느낌이구나" 하고 이해에 도움을 받는 정도였던 것 같네요.
 
-### **조이스틱**
+## **조이스틱**
 
 일반적인 2D 모바일 게임에 등장할 만한 조이스틱을 구현하고자 했습니다. 왼쪽에 플레이어 이동을 위한 조이스틱 하나와 오른쪽에 조준용 조이스틱 하나를 만들기로 했죠.
 
@@ -64,7 +64,7 @@ _극 초기의 게임플레이. 다섯 마리를 처치할 때마다 이벤트�
 
 여담으로, 스틱과 중심점을 LineRenderer을 통해 시각적으로 연결한다던가, 스틱이 탄성력을 가지고 튕기듯 중심점으로 돌아온다거나, 아니면 무기별로 조이스틱 조작법이 달라진다던가 하는 등의 구현하고 싶었던 아이디어가 많았는데요, 만들 당시 실력이 부족하기도 했고 게임 구조와 충돌하는 경우도 있어서 구현하지는 못했습니다. 대신, 조이스틱을 누르고 뗄 때마다 진동 피드백이 오는 정도만 만들었네요.
 
-### **적 스폰 및 동작**
+## **적 스폰 및 동작**
 
 ![enemycoming](/2023-12-13-cubic-survival-alpha/enemycoming.gif){: w="960" .shadow }
 ```cs
@@ -73,16 +73,12 @@ void spawnEnemy(GameObject Enemy, float east, float west, float south, float nor
     float spawnPointX = Random.Range(west, east);
     float spawnPointY = Random.Range(south, north);
 
-    /* ... */
-
     instantiatedEnemy = Instantiate(
         enemy,
         player.transform.position + new Vector3(spawnPointX, spawnPointY),
         transform.rotation
     );
 }
-
-/* ... */
 
 IEnumerator spawnEnemies()
 {
@@ -108,8 +104,6 @@ void Move()
     transform.Translate(dirTowardsPlayer * speed * Time.deltaTime);
 }
 
-/* ... */
-
 void OnCollisionEnter2D(Collision2D collider)
 {
     if (collider.gameObject.tag == "player")
@@ -125,7 +119,7 @@ void OnCollisionEnter2D(Collision2D collider)
 
 적은 기본적으로 플레이어를 향해 움직이면서, 플레이어와의 충돌하면 진동 피드백과 함께 `damage`만큼 플레이어의 체력을 감소시키고 `Destroy()`되도록 만들었습니다.
 
-### **인벤토리와 아이템**
+## **인벤토리와 아이템**
 
 게임 구조가 윤곽이 잡혀가다보니 아이템을 얻어 저장해두었다가 나중에 꺼내 사용할 수 있는 인벤토리가 있으면 좋겠다는 생각이 들었습니다. 여기는 스스로의 고민을 좀 한 부분인데요, 많은 게임에서 인벤토리 UI를 별도의 창으로 구성하거나 아예 만들지 않고 버튼 토글식으로 만들고 있었거든요. 둘 다 마음에 들지 않았습니다.
 
@@ -162,7 +156,7 @@ for (int i = 0; i < InventoryData.InventoryUI.Length; i++)
 
 아이템 식별자는 위처럼 유형을 나타내는 2자리 뒤에 아이템 이름을 나타내는 4자리가 이어지도록 만들었습니다. 재미있었던 것은 만들 때는 모르고 있었는데, 아이템이 점점 많아지면서 "구분을 위해 고유 코드를 하나씩 만들어야겠다!"라고 자연스레 생각했던 그 발상이 나중에 알고보니 "식별자"라고 이름까지 있는 개념이었더라고요. 써보니 꽤 유용했어서 다음에도 계속 활용하려고 합니다.
 
-### **무기 발사**
+## **무기 발사**
 
 ![shooting](/2023-12-13-cubic-survival-alpha/shooting.gif){: w="960" .shadow }
 ```cs
@@ -197,7 +191,6 @@ void hasHitEnemy()
                 Destroy(gameObject);
             /* ... */
         }
-        /* ... */
     }
 }
 ```
@@ -209,11 +202,11 @@ void hasHitEnemy()
 
 나중에 알고보니 총알 발사와 같이 오브젝트의 인스턴스화가 빈번히 일어나는 경우에 오브젝트 풀링(Object Pooling)이라는 최적화 기법을 사용할 수 있더라고요. 향후에 시간이 될 때 적용해보려고 합니다.
 
-# **비주얼 디자인**
+# **사용자 경험 디자인**
 
 앞의 단락이 "필드를 돌아다니며 적을 처치하는 액션 게임을 만들어보고 싶다"에 대한 내용이었다면, 이 단락은 "부드럽고 특이한 사용자경험을 구현하고 싶다"에 대한 내용입니다. 제대로 된 비주얼 관련 작업은 대부분 후기 개발 단계에서 이루어졌다고 생각하기 때문에 다음 글에서 다루도록 하겠습니다.
 
-### **카메라**
+## **카메라**
 
 ![camera](/2023-12-13-cubic-survival-alpha/camera.gif){: w="960" .shadow }
 ```cs
@@ -245,9 +238,10 @@ void Vignette()
 
 <!--UI 넣을 수 있나?-->
 
-### **URP**
+## **URP**
 
 ![urp](/2023-12-13-cubic-survival-alpha/urp.gif){: w="960" .shadow }
+_무기가 발사될 때마다 적 뒤로 그림자가 비친다._
 <!--![unity_urp](/2023-12-13-cubic-survival-alpha/unity_urp.png){: w="960" .shadow }-->
 
 처음에는 Unity2D 환경의 기본 빛 효과를 어찌저찌 사용하다가, 여러군데 아쉬움이 있어 대안으로 **[URP(Universal Render Pipeline)](https://unity.com/srp/universal-render-pipeline)**를 적용하고 나니까 비주얼이 아주 좋아졌습니다. 기본적으로도 부드럽게 떨어지는 예쁜 빛 효과를 제공하면서도, 예를 들어 Falloff Strength 옵션을 조절해 더 은은하거나 화려한 빛을 만든다던가, Shadows 옵션으로 위처럼 빛과 그림자 효과를 연출하거나 할 수 있어서 정말 유용하게 사용했어요.

@@ -1,0 +1,42 @@
+---
+title:  "티켓 던전(Ticket Dungeon) 기획"
+
+categories: [프로그래밍, 마일스톤]
+tags: [유니티, 기획, 게임]
+image: /2022-08-24-LAV/LAVAD_working.gif
+
+toc: true
+toc_sticky: true
+
+mermaid: true
+ 
+date: 2024-01-16
+last_modified_at: 2024-01-16
+---
+
+# **들어가며**
+
+# **시스템 설계**
+
+## **클래스 설계**
+```mermaid
+```
+- 싱글톤 패턴을 GameManager로 써봄. Monobehaviour 상속 없는 걸로 만들어서, 처음에는 버튼을 누르면 씬 전환하는 함수 제공용으로 썼다.
+
+## **씬 설계**
+- 피그마 이용
+
+## **씬 구성**
+- 메인 씬
+  - 스크롤뷰 처음 사용 (Cubic Survival 때 사용해볼뻔 하다가 못해보고 이번에 와서 해봄)
+  - Canvas 하위 RectTransform의 UI 오브젝트를 사용해야 하는지, 일반 Transform의 게임오브젝트를 사용해야 하는지도 헷갈림.
+  - 해상도 대응이 너무 어려웠음.
+
+## **티켓 발행 기능 구현**
+- 팩토리 패턴 사용
+  - 인터페이스와 추상클래스 사용
+
+# *개발 준비*
+
+## **Plastic SCM**
+- 깃허브와 비슷한듯 다른점이 있어서 헷갈렸으나 적응하고나서부터는 편하게 잘 썼음. Unity 에디터 내에서 하나의 Tab으로 접근할 수 있다는 것이 너무 좋았음.
