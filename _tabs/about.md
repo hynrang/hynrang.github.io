@@ -3,6 +3,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 
+![hynrng](/info/hynrng.png){: .shadow }
+
 - 김태현 (Kim TaeHyun)
 - hynrng@gmail.com
 
