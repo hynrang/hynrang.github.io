@@ -11,6 +11,9 @@ tail_includes:
 
 {% include lang.html %}
 
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+
 <article class="px-1">
   <header>
     <h1 data-toc-skip>{{ page.title }}</h1>
@@ -77,6 +80,15 @@ tail_includes:
     {{ content }}
   </div>
 
+  <br>
+  <br>
+
+  <!-- Applause-Button -->
+  <applause-button class="mb6"
+    color="rgb(79,177,186)"
+    url="{{ page.url | absolute_url }}">
+  </applause-button>
+
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->
     {% if page.categories.size > 0 %}
@@ -128,3 +140,15 @@ tail_includes:
   </div>
   <!-- div.post-tail-wrapper -->
 </article>
+
+<style>
+  applause-button {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+  }
+
+  applause-button .count-container {
+    color: inherit;
+  }
+</style>
