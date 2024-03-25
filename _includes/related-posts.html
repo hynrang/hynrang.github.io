@@ -108,7 +108,7 @@
 
                   {% assign cleaned_content = cleaned_content | replace: '들어가며', '' | replace: '스포일러가 있습니다!', '' %}
 
-                  {{ content | markdownify | strip_html | truncate: 200 | escape }}
+                  {{ cleaned_content | markdownify | strip_html | truncate: 200 | escape }}
                 </p>
               </div>
             </div>
