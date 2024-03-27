@@ -1,7 +1,9 @@
 ---
-icon: fas fa-info-circle
+icon: fa-solid fa-circle-question
 order: 4
 ---
+
+<!-- fas fa-info-circle -->
 
 ![hynrng](/info/hynrng.png)
 
